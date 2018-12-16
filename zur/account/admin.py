@@ -1,13 +1,11 @@
 from django import forms
 from django.contrib import admin
-from django.contrib.auth.models import Group, User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from .models import MyUser
 from .models import Departy
 from .models import Position
-from django.contrib.auth.models import Permission
-from django.utils.translation import ugettext_lazy as _
+
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
@@ -41,14 +39,13 @@ class UserChangeForm(forms.ModelForm):
     the user, but replaces the password field with admin's
     password hash display field.
     """
-   # password = ReadOnlyPasswordHashField()
     password = ReadOnlyPasswordHashField(label=("Hasło"),
                                          help_text=("Jeśli użytkownik zapomniał hasła skorzystaj z  "
                                                     "formularza "
                                                     " <a href=\"../password\">Reset hasła</a>."))
     class Meta:
         model = MyUser
-        fields = ('email', 'password', 'is_active', 'is_admin')
+        fields = ('email', 'password',)
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -59,25 +56,23 @@ class UserChangeForm(forms.ModelForm):
 
 class UserAdmin(BaseUserAdmin):
     # The forms to add and change user instances
-    form = UserChangeForm
-    add_form = UserCreationForm
+
 
 
 
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('email', 'fname', 'lname', 'position', 'departy', 'is_admin')
-    list_filter = ('is_admin',)
+    list_display = ('email', 'fname', 'lname', 'position', 'departy', 'is_staff', )
+    list_filter = ()
 
     fieldsets = (
-        (None, {'fields': ('email', 'password',)}),
-        (_('Personal info'),
-         {'fields': ('fname', 'lname', 'position', 'departy', 'brygadier', 'companyName', 'companyIn',
-                     'contact')}),
-        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
-                                       'groups', 'user_permissions')}),
+        (None, {'fields': ('email', )}),
 
+        ('Informacje o pracowniku',
+         {'fields': ('fname', 'lname', 'position', 'departy', 'brygadier', 'companyName', 'companyIn', 'contact',)}),
+        ('Uprawnienia', {'fields': ('is_staff', 'is_superuser', 'is_active', 'groups', 'user_permissions')}),
+        ('Reset hasła', {'fields': ('password',)}),
     )
 
     add_fieldsets = (
@@ -88,17 +83,15 @@ class UserAdmin(BaseUserAdmin):
 
 
     )
-    search_fields = ('email',)
+    search_fields = ('email', 'is_staff',)
+
     ordering = ('email',)
-    filter_horizontal = ()
+    filter_horizontal = ('user_permissions', 'groups', )
 
 # Now register the new UserAdmin...
 
 admin.site.register(MyUser,UserAdmin)
 
-
-
 admin.site.register(Departy)
 admin.site.register(Position)
-# ... and, since we're not using Django's built-in permissions,
-# unregister the Group model from admin.
+
