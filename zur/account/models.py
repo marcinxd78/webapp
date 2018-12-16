@@ -135,3 +135,4 @@ class MyUser(AbstractBaseUser):
         verbose_name = 'Uzytkownika'
         verbose_name_plural = 'Użytkownicy'
 
+hash()
