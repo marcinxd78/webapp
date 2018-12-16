@@ -6,8 +6,8 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from .models import MyUser
 from .models import Departy
 from .models import Position
-from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import Permission
+from django.utils.translation import ugettext_lazy as _
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
@@ -71,12 +71,21 @@ class UserAdmin(BaseUserAdmin):
     list_filter = ('is_admin',)
 
     fieldsets = (
-        (None, {'fields': ('password',)}),
+        (None, {'fields': ('email', 'password',)}),
         (_('Personal info'),
          {'fields': ('fname', 'lname', 'position', 'departy', 'brygadier', 'companyName', 'companyIn',
                      'contact')}),
         (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
                                        'groups', 'user_permissions')}),
+
+    )
+
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('email', 'fname', 'lname', 'password1', 'password2')}
+        ),
+
 
     )
     search_fields = ('email',)
@@ -86,7 +95,7 @@ class UserAdmin(BaseUserAdmin):
 # Now register the new UserAdmin...
 
 admin.site.register(MyUser,UserAdmin)
-admin.site.register(User,UserAdmin)
+
 
 
 admin.site.register(Departy)
