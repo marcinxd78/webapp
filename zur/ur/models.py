@@ -1,6 +1,7 @@
 from django.db import models
+from datetime import datetime
 from django.contrib.auth import get_user_model
-from django.utils import timezone
+
 
 # Create your models here.
 
@@ -40,6 +41,7 @@ class Work_cat(models.Model):  #kategoria usterki np. niewłaściwa praca
         return '%s' % self.name_work_cat
 
 
+
 class Fix_cat(models.Model):   #dział odpowiedzialny za naprawe np.ELEKTRYCY
     name_fix_cat = models.CharField(max_length=20, verbose_name='Dział')
 
@@ -52,17 +54,27 @@ class Fix_cat(models.Model):   #dział odpowiedzialny za naprawe np.ELEKTRYCY
 
 
 class Tag(models.Model):
-
+    k = datetime.now().date()
 
     number = models.CharField(max_length=20, verbose_name='Numer tagu')  #numer tagu
     depart = models.ForeignKey(Department, null=True,  on_delete=models.CASCADE, verbose_name='Wydział') #wydział
     machine = models.CharField(max_length=20, verbose_name='Urządzenie') #urządzenie
-    add_date = models.DateField(verbose_name='Data dodania') #data dodania
-    expiry_date = models.DateField(verbose_name='Data wykonania') #data wykonania
+    add_date = models.DateField(verbose_name='Data dodania', default=datetime.now().date()) #data dodania
+    expiry_date = models.DateField(verbose_name='Data wykonania', default=datetime.now().date()) #data wykonania
     priority = models.ForeignKey(Priority, null=True, on_delete=models.CASCADE, verbose_name='Priorytet') #priorytet
     explain = models.TextField(verbose_name='Opis usterki') #opis usterki
     work_cat = models.ForeignKey(Work_cat, null=True, on_delete=models.CASCADE, verbose_name='Kategoria usterki') #kategoria usterki
     fix_dep = models.ForeignKey(Fix_cat, null=True, on_delete=models.CASCADE, verbose_name='Dział odpowiedzialny') #kategoria działu odpowiedzialnego za usterke
+
+
+
+    def manyDays (self):
+        return (self.expiry_date - self.k).days
+    manyDays.short_description = 'Dni na wykonanie'
+
+
+
+
 
     class Meta:
         verbose_name = 'Tag'
@@ -71,6 +83,5 @@ class Tag(models.Model):
 
     def __str__(self):
      return self.number
-
 
 

@@ -17,5 +17,7 @@ admin.site.register(Fix_cat)
 
 @admin.register(Tag)
 class Tag(admin.ModelAdmin):
-    list_display = ['number', 'machine', 'add_date', 'expiry_date', 'priority', 'fix_dep']
+    list_display = ['number', 'machine', 'add_date', 'expiry_date', 'priority', 'fix_dep','manyDays']
+    readonly_fields = ['manyDays']
+
 
