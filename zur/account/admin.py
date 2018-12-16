@@ -1,11 +1,12 @@
 from django import forms
 from django.contrib import admin
-from django.contrib.auth.models import Group
+from django.contrib.auth.models import Group, User
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from .models import MyUser
 from .models import Departy
 from .models import Position
+from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import Permission
 
 class UserCreationForm(forms.ModelForm):
@@ -68,19 +69,14 @@ class UserAdmin(BaseUserAdmin):
     # that reference specific fields on auth.User.
     list_display = ('email', 'fname', 'lname', 'position', 'departy', 'is_admin')
     list_filter = ('is_admin',)
-    fieldsets = (
-        (None, {'fields': ('email', 'password')}),
-        ('Informacje o pracowniku', {'fields': ('fname', 'lname', 'position', 'departy', 'brygadier', 'companyName', 'companyIn', 'contact',)}),
-        ('Uprawnienia', {'fields': ('is_admin',  )}),
-    )
-    # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
-    add_fieldsets = (
-        (None, {
-            'classes': ('wide',),
-            'fields': ('email', 'fname', 'lname', 'password1', 'password2')}
-        ),
 
+    fieldsets = (
+        (None, {'fields': ('password',)}),
+        (_('Personal info'),
+         {'fields': ('fname', 'lname', 'position', 'departy', 'brygadier', 'companyName', 'companyIn',
+                     'contact')}),
+        (_('Permissions'), {'fields': ('is_active', 'is_staff', 'is_superuser',
+                                       'groups', 'user_permissions')}),
 
     )
     search_fields = ('email',)
@@ -88,11 +84,12 @@ class UserAdmin(BaseUserAdmin):
     filter_horizontal = ()
 
 # Now register the new UserAdmin...
-admin.site.register(MyUser,UserAdmin)
 
-admin.site.register(Permission)
+admin.site.register(MyUser,UserAdmin)
+admin.site.register(User,UserAdmin)
+
+
 admin.site.register(Departy)
 admin.site.register(Position)
 # ... and, since we're not using Django's built-in permissions,
 # unregister the Group model from admin.
-#admin.site.unregister(Group)

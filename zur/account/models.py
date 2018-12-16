@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import (
-    BaseUserManager, AbstractBaseUser
-)
+    BaseUserManager, AbstractBaseUser,
+    PermissionsMixin)
 
 
 class MyUserManager(BaseUserManager):
@@ -134,4 +134,3 @@ class MyUser(AbstractBaseUser):
     class Meta:
         verbose_name = 'Uzytkownika'
         verbose_name_plural = 'Użytkownicy'
-
