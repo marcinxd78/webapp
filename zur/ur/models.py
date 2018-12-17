@@ -53,6 +53,9 @@ class Fix_cat(models.Model):   #dział odpowiedzialny za naprawe np.ELEKTRYCY
         return '%s' % self.name_fix_cat
 
 
+
+
+
 class Tag(models.Model):
     k = datetime.now().date()
 
@@ -60,20 +63,24 @@ class Tag(models.Model):
     depart = models.ForeignKey(Department, null=True,  on_delete=models.CASCADE, verbose_name='Wydział') #wydział
     machine = models.CharField(max_length=20, verbose_name='Urządzenie') #urządzenie
     add_date = models.DateField(verbose_name='Data dodania', default=datetime.now().date()) #data dodania
-    expiry_date = models.DateField(verbose_name='Data wykonania', default=datetime.now().date()) #data wykonania
+    expiry_date = models.DateField(verbose_name='Do kiedy wkonac zlecenie', default=datetime.now().date()) #data wykonania
     priority = models.ForeignKey(Priority, null=True, on_delete=models.CASCADE, verbose_name='Priorytet') #priorytet
     explain = models.TextField(verbose_name='Opis usterki') #opis usterki
     work_cat = models.ForeignKey(Work_cat, null=True, on_delete=models.CASCADE, verbose_name='Kategoria usterki') #kategoria usterki
     fix_dep = models.ForeignKey(Fix_cat, null=True, on_delete=models.CASCADE, verbose_name='Dział odpowiedzialny') #kategoria działu odpowiedzialnego za usterke
+    IsDone = models.BooleanField(default=False, verbose_name='Czy wykonano?')
+    FixDate = models.DateField(default=datetime.now().date(), blank=True, verbose_name="Data usunięcia usterki", )
 
-
-
+ #oblicza ile mamy dni na wykonanie zlecenia
     def manyDays (self):
-        return (self.expiry_date - self.k).days
+        return (self.expiry_date - self.add_date).days
     manyDays.short_description = 'Dni na wykonanie'
 
-
-
+#oblicza jaki był czas od dodania zlecenia do jego zakończenia
+    def IsDoIt (self):
+        if self.IsDone == True and self.FixDate:
+            return (self.FixDate - self.add_date).days
+    IsDoIt.short_description = "Czas trwania zlecenia"
 
 
     class Meta:
