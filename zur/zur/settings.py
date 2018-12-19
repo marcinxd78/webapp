@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ur',
     'account',
     'zur',
+    'stats',
 
 
 

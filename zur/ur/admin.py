@@ -20,7 +20,8 @@ admin.site.register(Permission)
 
 @admin.register(Tag)
 class Tag(admin.ModelAdmin):
-    list_display = ['number', 'machine', 'priority', 'add_date', 'expiry_date', 'FixDate', 'IsDone', 'fix_dep', 'manyDays', 'IsDoIt', ]
+    list_display = ['number', 'machine', 'priority', 'add_date', 'expiry_date', 'fix_date', 'is_done',
+                    'fix_dep', 'many_days', 'is_do_it', ]
     date_hierarchy = 'expiry_date'
 
 
