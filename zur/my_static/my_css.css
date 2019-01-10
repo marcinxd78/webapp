@@ -1,0 +1,52 @@
+
+
+/*centrowanie panelu logowania*/
+.ab_center
+{
+	height:300px;
+	width:300px;
+	position:absolute;
+	margin:auto;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+}
+
+/*centrowanie przycisku zaloguj*/
+.btn_center
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bacground_login{
+  background-image: url("bcg_login.jpg");
+    background-color: #cccccc;
+  height: 654px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+
+.bacground_form{
+  background-image: url("bcg_login.jpg");
+    background-color: #cccccc;
+  height: 1350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+
+}
+
+td.details-control {
+    background: url('details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    background: url('details_close.png') no-repeat center center;
+}

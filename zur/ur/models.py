@@ -75,8 +75,8 @@ class Tag(models.Model):
     # oblicza jaki był czas od dodania zlecenia do jego zakończenia
 
     def is_do_it(self):
-        if self.isdone == True and self.fixdate:
-            return (self.fixdate - self.add_date).days
+        if self.is_done == True and self.fix_date:
+            return (self.fix_date - self.add_date).days
 
     is_do_it.short_description = "Czas trwania zlecenia"
 
@@ -110,6 +110,20 @@ class Tag(models.Model):
         percent_value = (count_false/(count_true + count_false))
         return format(percent_value, '.2%')
 
+    # oblicza całkowita iość wniosków
+    @classmethod
+    def total(cls):
+        count_total = cls.objects.all().count()
+        return count_total
+
+    #sprawdza ilość wniosków czy jest 100%
+    @classmethod
+    def total_percent(cls):
+        count_percent_true = cls.objects.filter(is_done=True).count()
+        count_percent_false = cls.objects.filter(is_done=False).count()
+        sum_count = count_percent_false + count_percent_true
+        count_percent = sum_count/sum_count
+        return format(count_percent, '.2%')
 
     class Meta:
         verbose_name = 'Tag'

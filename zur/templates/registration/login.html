@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %}Strona logowania{% endblock %}
+
+
+
+{% block body %}
+<div class="bacground_login"></div>
+    <div class="ab_center">
+        <div class="card"  style="width: 21.5rem; margin: 0 auto">
+          <div class="card-body" >
+              <h5 class = "card-title" align="center">Zaloguj się do systemu</h5>
+            <form method="post">
+                {% csrf_token %}
+                {{form|bootstrap}}
+                <div class="btn_center">
+                <button type="submit" class="btn btn-dark">Zaloguj <i class="fas fa-sign-in-alt"></i></button>
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+

@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load render_table from django_tables2 %}
+
+{% block title %}Lista tagów{% endblock %}
+
+
+{% block body %}
+
+    {% if user.is_authenticated %}
+        Zalogowano jako {{user.email}}<br>
+    {%endif%}
+    <a href="{% url 'logout'  %}">Wyloguj</a>
+
+    <p>Lista Tagów</p>
+    <a href="{% url 'tag_add'  %}">Dodaj tag</a>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css ">
+
+
+    <table id="example" class="table  table-striped table-bordered" align="center" style="width:80%"  >
+        <thead>
+            <tr >
+                <th></th>
+                <th>Numer tagu</th>
+                <th>Urządzenie</th>
+                <th>Data dodania</th>
+                <th>Do kiedy wykonać ?</th>
+                <th>Wykonane ?</th>
+
+               <!-- <th>Data wykonania</th>
+                <th>Dział odpowiedzialny</th>
+                <th>Wykonane</th>
+               <th  style="width: 16%">Akcja</th>-->
+
+            </tr>
+        </thead>
+
+    </table>
+
+  <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+
+
+
+  <script>
+
+    function format ( d ) {
+    // `d` is the original data object for the row
+    return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+        '<tr>'+
+            '<td>Full name:</td>'+
+            '<td>'+d.depart.name_dep+'</td>'+
+        '</tr>'+
+        '' +
+        ' <tr>'+
+            '<td>Akcja:</td>'+
+            '<td align="center"><a href="/ur/edit/'+d.id+'/" class="btn btn-dark">Edytuj </a>\n'+
+             '<a  href="/ur/delete/'+d.id+'/" class="btn btn-dark">Usuń </a></td>'+
+        '</tr>'+
+        '<tr>'+
+            '<td>Extra info:</td>'+
+            '<td>And any further details here (images etc)...</td>'+
+        '</tr>'+
+    '</table>';
+}
+
+$(document).ready(function() {
+    var table = $('#example').DataTable( {
+        "ajax": {
+
+            url: "http://localhost:8000/ur/tags/?format=json",
+
+             "dataSrc": ""
+
+        },
+
+        "columns": [
+
+            {
+                "className":      'details-control',
+                "orderable":      false,
+                "data":           null,
+                "defaultContent": ''
+
+            },
+
+
+            {data: "number" },
+            {data: "machine" },
+            {data: "add_date" },
+            {data: "expiry_date"},
+            {data: "is_done"},
+
+        ],
+        "order": [[1, 'asc']]
+    } );
+
+    // Add event listener for opening and closing details
+    $('#example tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = table.row( tr );
+
+        if ( row.child.isShown() ) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            // Open this row
+            row.child( format(row.data()) ).show();
+            tr.addClass('shown');
+        }
+    } );
+
+} );
+
+</script>
+
+{% endblock %}
