@@ -2,12 +2,14 @@
 
 {% block title %}Dodaj/edytuj tag{% endblock %}
 {% load bootstrap %}
-{% block body %}
 
+
+
+{% block body %}
 
 <div class="bacground_form">
 
-        <div class="card mx-auto"  style="width: 800px; margin: 0 auto">
+        <div class="card mx-auto"  style="width: 800px; margin: 50px">
             <div class="card-header" align="center">
                  Dodaj nowy Tag
              </div>
@@ -15,8 +17,8 @@
                 <form method="post">
                     {% csrf_token %}
                     {{new_tag|bootstrap}}
-                    <button type="submit" class="btn btn-dark">Dodaj tag </button>
-                       <a  href="{% url 'tag_all' %}">Powrót </a>
+                    <button type="submit" class="btn btn-dark"> Dodaj tag <i class="fas fa-database"></i> </button>
+                       <a  href="{% url 'tag_all' %}">Powrót <i class="fas fa-undo"></i> </a>
                 </form>
             </div>
         </div>

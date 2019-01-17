@@ -61,3 +61,8 @@ def tag_delete(request, id):
          return redirect(tag_response)
 
     return render(request, 'delete_apply.html', {'tag': form})
+
+@login_required
+def tag_index(request):
+    return render(request, 'index.html')
+

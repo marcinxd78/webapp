@@ -50,3 +50,43 @@ td.details-control {
 tr.shown td.details-control {
     background: url('details_close.png') no-repeat center center;
 }
+.img1{
+      background: url('details_close.png') no-repeat center center;
+}
+
+.pull-center{
+   position: relative;
+ }
+
+ /*marginesy ilości rekordów na stronie*/
+.dataTables_length{
+    margin-top: 100px;
+    margin-left: 130px;
+}
+
+/*marginesy wyszukiwarki*/
+.dataTables_filter{
+    margin-top: 100px;
+    margin-right: 130px;
+}
+
+/*marginesy strony przewijania*/
+ .dataTables_paginate{
+     margin-right: 130px !important;
+ }
+
+/*marginesy panelu info*/
+.dataTables_info{
+     margin-left: 130px !important;
+ }
+
+/*marginesy strony*/
+  .row{
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+  }
+
+/*wyśrodkowanie ikony wykonania*/
+.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child{
+      text-align: center;
+  }

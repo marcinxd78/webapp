@@ -116,7 +116,6 @@ AUTH_USER_MODEL = 'account.MyUser'
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
 LANGUAGE_CODE = 'pl'
-
 TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
@@ -132,7 +131,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = ['my_static']
 
 LOGIN_URL = 'login'
-LOGIN_REDIRECT_URL = 'tag_all'
+LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap4.html'

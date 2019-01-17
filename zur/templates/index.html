@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Lista tagów{% endblock %}
+
+
+{% block body %}
+
+
+<!-- News jumbotron -->
+<div style="margin-top: 55px" class="jumbotron text-center hoverable p-4">
+
+  <!-- Grid row -->
+  <div class="row">
+
+    <!-- Grid column -->
+    <div class="col-md-4 offset-md-1 mx-3 my-3">
+
+      <!-- Featured image -->
+      <div class="view overlay">
+        <img src="http://modynas.cz/wp-content/uploads/Close-up-of-CNC-machine-at-work.jpg" class="img-fluid" alt="Sample image for first version of blog listing">
+        <a>
+          <div class="mask rgba-white-slight"></div>
+        </a>
+      </div>
+
+    </div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
+    <div class="col-md-7 text-md-left ml-3 mt-3">
+
+      <!-- Excerpt -->
+      <a class="green-text">
+        <h6 class="h6 pb-1"><i class="fas fa-desktop pr-1"></i> Utrzymanie ruchu</h6>
+      </a>
+
+      <h4 class="h4 mb-4">Witaj {% if user.is_authenticated %}
+        {{user.fname}}  {{user.lname}}<br>
+    {%endif%}</h4>
+
+      <p class="font-weight-normal">Znajdujesz sie na stronie głównej systemu utrzymania ruchu. </p>
+
+
+      <a class="btn btn-success btn-lg" href="{% url 'tag_all'  %}"><i class="fas fa-search"></i> Przegladaj awarie</a>
+        <a class="btn btn-success btn-lg" href="{% url 'tag_add'  %}"><i class="fas fa-plus"></i> Dodaj awarie</a>
+
+    </div>
+    <!-- Grid column -->
+
+  </div>
+  <!-- Grid row -->
+
+</div>
+<!-- News jumbotron -->
+
+
+{% endblock %}

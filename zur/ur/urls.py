@@ -3,6 +3,7 @@ from .views import tag_response
 from .views import tag_add
 from .views import tag_edit
 from .views import tag_delete
+from .views import tag_index
 from django.conf.urls import url, include
 from rest_framework import routers
 from .views import TagViewSet
@@ -11,6 +12,7 @@ router = routers.DefaultRouter()
 router.register(r'tags', TagViewSet, base_name='tags')
 
 urlpatterns = [
+    path('start/', tag_index, name='index'),
     path('tag/', tag_response, name='tag_all'),
     path('new/', tag_add, name='tag_add'),
     path('edit/<int:id>/', tag_edit, name='tag_edit'),
