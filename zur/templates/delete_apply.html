@@ -1,14 +1,56 @@
 {% extends 'base.html' %}
 
+
 {% block title %}Usuń tag{% endblock %}
 
 {% block body %}
 
-    <h1>Czy chcesz usunąć {{tag.number}} ?</h1>
+ <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand"  href="{% url 'index'  %}">Start <i class="fas fa-play"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <a class="navbar-brand"  href="{% url 'tag_all'  %}">Awarie <i class="fas fa-tools"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+         <a class="navbar-brand"  href="{% url 'tag_add'  %}">Dodaj <i class="fas fa-folder-plus"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <a  style="position:  absolute; right: 0px;"  class="navbar-brand"  href="{% url 'logout'  %}">
+            <button class="btn btn-outline-success my-2 my-sm-0"  type="submit"><i class="fas fa-sign-out-alt"></i> Wyloguj</button>
+        </a>
+
+    </nav>
+
+
+<div style="margin-top: 200px" class="card text-center">
+  <div class="card-header">
+    Identyfikator awarii {{tag.number}}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" >{{user.fname}} {{user.lname}} </h5>
+    <p class="card-text">Czy jesteś pewnien aby usunąć awarie o numerze {{tag.number}} ? <form method="post">
+     {% csrf_token %}
+
+
+      <button type="submit" class="btn btn-outline-danger btn-lg"><i class="fas fa-exclamation-triangle"></i> TAK</button>
+    <a href="{% url 'tag_all' %}" class="btn btn-outline-success btn-lg"><i class="fas fa-thumbs-up"></i> NIE</a></form> </p>
+  </div>
+  <div class="card-footer text-muted">
+    *akceptacja powoduje trwałe usunięcie z bazy danych
+  </div>
+</div>
+
+   <!-- <h1>Czy chcesz usunąć {{tag.number}} ?</h1>
     <form method="post">
         {% csrf_token %}
              <button type="submit">Tak</button>
 
     </form>
-
+-->
 {% endblock %}

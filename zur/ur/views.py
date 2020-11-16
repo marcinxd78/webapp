@@ -25,7 +25,6 @@ class TagViewSet(viewsets.ModelViewSet):
 
 
 
-
 @login_required
 def tag_response(request):
     tag_views = Tag.objects.all()
@@ -64,5 +63,6 @@ def tag_delete(request, id):
 
 @login_required
 def tag_index(request):
-    return render(request, 'index.html')
+    tag_view = Tag.objects.order_by('-add_date')[:8]
+    return render(request, 'index.html', {'card_tag': tag_view})
 

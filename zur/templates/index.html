@@ -1,11 +1,32 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Lista tagów{% endblock %}
+
 
 
 {% block body %}
 
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand"  href="{% url 'index'  %}">Start <i class="fas fa-play"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <a class="navbar-brand"  href="{% url 'tag_all'  %}">Awarie <i class="fas fa-tools"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+         <a class="navbar-brand"  href="{% url 'tag_add'  %}">Dodaj <i class="fas fa-folder-plus"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <a  style="position:  absolute; right: 0px;"  class="navbar-brand"  href="{% url 'logout'  %}">
+            <button class="btn btn-outline-success my-2 my-sm-0"  type="submit"><i class="fas fa-sign-out-alt"></i> Wyloguj</button>
+        </a>
+
+    </nav>
 
 <!-- News jumbotron -->
 <div style="margin-top: 55px" class="jumbotron text-center hoverable p-4">
@@ -53,6 +74,51 @@
 
 </div>
 <!-- News jumbotron -->
+
+<p style="text-align: center">Najnowsze tagi</p>
+
+
+
+<div class="card-group " style="margin-left: 23px">
+    <div class="row">
+    {%for tag in card_tag%}
+
+  <div class="card border-light mb-3  ; col-sm-4;   " style="width: 20rem; background: #e9ecef "  >
+    <div class="card-body">
+      <div class="card-header  "   style="background: #e9ecef" >
+          <h5 class="h5 mb-3"  align="center" ><strong>Numer: {{tag.number }}</strong></h5>
+            </div >
+          <div class="card-body" >
+              <strong>Urządzenie: </strong>  {{tag.machine}}
+                <br>
+               <strong>Kategoria:</strong>  {{tag.work_cat}}
+              <br>
+               <strong>Miejsce wystąpienia: </strong>  {{tag.depart}}
+                <br>
+               <strong>Status: </strong>
+              {% if tag.is_done  %}
+                <i class="fas fa-check-circle " style="color:forestgreen"></i>
+              {%else%}
+                <i class="fa fa-times" style="color:red " > </i>
+              {%endif%}
+                <br>
+              <br> <br>
+              <div style="text-align: right ">
+              <a href="{% url 'tag_all'%}" class="btn btn-success lg"><i class="fas fa-search"></i> Tagi</a>
+              <a href="{% url 'tag_edit' tag.id %}" class="btn btn-success lg"><i class="fas fa-edit"></i> Edycja</a>
+                  </div>
+          </div>
+         <div class="card-footer text-muted" style="background: #e9ecef">
+         Dodano {{tag.add_date}}
+  </div>
+    </div>
+  </div>
+        <br>
+
+    {%endfor%}
+        </div>
+</div>
+
 
 
 {% endblock %}

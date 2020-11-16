@@ -12,7 +12,7 @@ router = routers.DefaultRouter()
 router.register(r'tags', TagViewSet, base_name='tags')
 
 urlpatterns = [
-    path('start/', tag_index, name='index'),
+    path(' ', tag_index, name='index'),
     path('tag/', tag_response, name='tag_all'),
     path('new/', tag_add, name='tag_add'),
     path('edit/<int:id>/', tag_edit, name='tag_edit'),
