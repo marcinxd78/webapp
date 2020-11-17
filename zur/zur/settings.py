@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django_tables2',
     'jquery',
     'rest_framework',
+    'machines',
 ]
 
 
@@ -129,6 +130,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ['my_static']
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'my_media'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'index'

@@ -53,11 +53,20 @@ class Fix_cat(models.Model):  # dział odpowiedzialny za naprawe np.ELEKTRYCY
 
 # class TagManager(models.Manager):
 
+def foo():
+
+    counter = Tag.objects.get.last()
+
+    return counter
+
 
 class Tag(models.Model):
+
     k = datetime.now().date()
 
-    number = models.CharField(max_length=20, verbose_name='Numer tagu')  # numer tagu
+
+
+    number = models.CharField(default=foo,max_length=20, verbose_name='Numer tagu')  # numer tagu
     depart = models.ForeignKey(Department, null=True, on_delete=models.CASCADE, verbose_name='Wydział')  # wydział
     machine = models.CharField(max_length=20, verbose_name='Urządzenie')  # urządzenie
     add_date = models.DateField(verbose_name='Data dodania', default=datetime.now().date())  # data dodania
@@ -70,7 +79,11 @@ class Tag(models.Model):
     fix_dep = models.ForeignKey(Fix_cat, null=True, on_delete=models.CASCADE,
                                 verbose_name='Dział odpowiedzialny')  # kategoria działu odpowiedzialnego za usterke
     is_done = models.BooleanField(default=False, verbose_name='Czy wykonano?')  # czy naprawiono
+    image = models.ImageField(upload_to='urfiles', null=True, blank=True, verbose_name='Zdjęcie')
     fix_date = models.DateField(default=datetime.now().date(), blank=True, verbose_name="Data usunięcia usterki", )
+
+
+
 
     # oblicza jaki był czas od dodania zlecenia do jego zakończenia
 
@@ -124,6 +137,9 @@ class Tag(models.Model):
         sum_count = count_percent_false + count_percent_true
         count_percent = sum_count/sum_count
         return format(count_percent, '.2%')
+
+
+
 
     class Meta:
         verbose_name = 'Tag'

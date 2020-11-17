@@ -35,7 +35,7 @@
                  Dodaj nowy Tag
              </div>
             <div class="card-body" >
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{new_tag|bootstrap}}
                     <button type="submit" class="btn btn-dark"> Dodaj tag <i class="fas fa-database"></i> </button>

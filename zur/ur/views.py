@@ -32,7 +32,7 @@ def tag_response(request):
 
 @login_required
 def tag_add(request):
-    form = TagForm(request.POST or None)
+    form = TagForm(request.POST or None, request.FILES or None)
 
     if form.is_valid():
         form.save()
@@ -43,7 +43,7 @@ def tag_add(request):
 @login_required
 def tag_edit(request, id):
     tag = get_object_or_404(Tag, pk=id)
-    form = TagForm(request.POST or None, instance=tag,)
+    form = TagForm(request.POST or None, request.FILES or None, instance=tag, )
 
     if form.is_valid():
         form.save()
