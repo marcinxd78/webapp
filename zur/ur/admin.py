@@ -10,7 +10,7 @@ from django.contrib.auth.models import Permission
 
 
 
-admin.site.register(Department)
+#admin.site.register(Department)
 admin.site.register(Priority)
 admin.site.register(Work_cat)
 admin.site.register(Fix_cat)

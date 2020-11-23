@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'jquery',
     'rest_framework',
     'machines',
+    'urcost',
 ]
 
 

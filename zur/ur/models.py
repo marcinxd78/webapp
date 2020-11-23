@@ -2,20 +2,20 @@ from django.db import models
 from datetime import datetime
 
 from django.contrib.auth import get_user_model
-
+from machines.models import Department
 
 # Create your models here.
 
 
-class Department(models.Model):  # dodanie wydziału na zakładzie np.Magazyn
-    name_dep = models.CharField(max_length=20, verbose_name='Wydział')
-
-    class Meta:
-        verbose_name = 'Wydział'
-        verbose_name_plural = 'Wydziały'
-
-    def __str__(self):
-        return '%s' % self.name_dep
+# class Department(models.Model):  # dodanie wydziału na zakładzie np.Magazyn
+#     name_dep = models.CharField(max_length=20, verbose_name='Wydział')
+#
+#     class Meta:
+#         verbose_name = 'Wydział'
+#         verbose_name_plural = 'Wydziały'
+#
+#     def __str__(self):
+#         return '%s' % self.name_dep
 
 
 class Priority(models.Model):  # priorytet  dodane tylk NISKI, ŚREDNI, WYSOKI
@@ -55,7 +55,7 @@ class Fix_cat(models.Model):  # dział odpowiedzialny za naprawe np.ELEKTRYCY
 
 def foo():
 
-    counter = Tag.objects.get.last()
+    counter = Tag.objects.get.last() + 1
 
     return counter
 
@@ -66,7 +66,7 @@ class Tag(models.Model):
 
 
 
-    number = models.CharField(default=foo,max_length=20, verbose_name='Numer tagu')  # numer tagu
+    number = models.CharField(max_length=20, verbose_name='Numer tagu')  # numer tagu
     depart = models.ForeignKey(Department, null=True, on_delete=models.CASCADE, verbose_name='Wydział')  # wydział
     machine = models.CharField(max_length=20, verbose_name='Urządzenie')  # urządzenie
     add_date = models.DateField(verbose_name='Data dodania', default=datetime.now().date())  # data dodania

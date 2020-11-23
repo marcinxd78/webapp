@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractUser)
-
+from machines.models import Department
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, fname, lname, position, departy, contact, brygadier, companyName,companyIn, password=None):
@@ -64,15 +64,15 @@ class Position(models.Model):   #klasa opisująca stanowisko
     def __str__(self):
         return '%s' % self.position
 
-class Departy(models.Model):   #klasa opisująca wydział
-    departy = models.CharField(max_length=20, verbose_name='Wydział')
-    people = models.PositiveIntegerField() #ilosc osob pracujących na danym dziale
-    contact = models.CharField(max_length=12, verbose_name='Numer telefonu') #telefon na wydział
-    class Meta:
-        verbose_name = 'Wydział'
-        verbose_name_plural = 'Wydziały'
-    def __str__(self):
-        return '%s' % self.departy
+# class Departy(models.Model):   #klasa opisująca wydział
+#     departy = models.CharField(max_length=20, verbose_name='Wydział')
+#     people = models.PositiveIntegerField() #ilosc osob pracujących na danym dziale
+#     contact = models.CharField(max_length=12, verbose_name='Numer telefonu') #telefon na wydział
+#     class Meta:
+#         verbose_name = 'Wydział'
+#         verbose_name_plural = 'Wydziały'
+#     def __str__(self):
+#         return '%s' % self.departy
 
 
 class MyUser(AbstractUser):
@@ -89,7 +89,7 @@ class MyUser(AbstractUser):
     fname = models.CharField(max_length=50, verbose_name='Imię')
     lname = models.CharField(max_length=50, verbose_name='Nazwisko')
     position = models.ForeignKey(Position, max_length=10, blank=True, null=True, on_delete=models.CASCADE, verbose_name='Etat') #stanowisko
-    departy = models.ForeignKey(Departy, max_length=20, blank=True, null=True, on_delete=models.CASCADE, verbose_name='Wydział') #wydział na którym pracuje
+    departy = models.ForeignKey(Department, max_length=20, blank=True, null=True, on_delete=models.CASCADE, verbose_name='Wydział') #wydział na którym pracuje
     contact = models.CharField(max_length=12, null=True, blank=True, verbose_name='Numer telefonu') #numer kontaktowy
     brygadier = models.BooleanField(default=False, null=True, blank=True, verbose_name="Brygadzista") #czy jest odpowiedzialny za dział
     companyName = models.CharField(max_length=30, null=True, blank=True, default=None, verbose_name='Nazwa firmy') #nazwa firmy

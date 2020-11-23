@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from .models import MyUser
-from .models import Departy
+
 from .models import Position
 
 
@@ -92,6 +92,6 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.register(MyUser,UserAdmin)
 
-admin.site.register(Departy)
+
 admin.site.register(Position)
 

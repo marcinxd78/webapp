@@ -1,0 +1,212 @@
+[
+  {
+    "number": "1/12/2018",
+    "depart": {
+      "name_dep": "W3"
+    },
+    "machine": "Ślimak",
+    "add_date": "2018-12-11",
+    "expiry_date": "2018-12-13",
+    "priority": {
+      "type_prior": "NISKI"
+    },
+    "explain": "Wyciek oleju",
+    "work_cat": {
+      "name_work_cat": "Wyciek"
+    },
+    "fix_dep": {
+      "name_fix_cat": "INFORMATYCZNY"
+    },
+    "is_done": false,
+    "fix_date": "2018-12-17"
+  },
+  {
+    "number": "2/12/2018",
+    "depart": {
+      "name_dep": "W3"
+    },
+    "machine": "Pompa",
+    "add_date": "2018-12-16",
+    "expiry_date": "2018-12-22",
+    "priority": {
+      "type_prior": "WYSOKI"
+    },
+    "explain": "Uszkodzona rolka",
+    "work_cat": {
+      "name_work_cat": "Uszkodzony sprzęt"
+    },
+    "fix_dep": {
+      "name_fix_cat": "MECHANICZNY"
+    },
+    "is_done": true,
+    "fix_date": "2018-12-23"
+  },
+  {
+    "number": "3/12/2018",
+    "depart": {
+      "name_dep": "W1"
+    },
+    "machine": "Pompa",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "ŚREDNI"
+    },
+    "explain": "Uszkodzona",
+    "work_cat": {
+      "name_work_cat": "Wyciek"
+    },
+    "fix_dep": {
+      "name_fix_cat": "MECHANICZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  },
+  {
+    "number": "4/12/2018",
+    "depart": {
+      "name_dep": "W3"
+    },
+    "machine": "Taśma 45",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "NISKI"
+    },
+    "explain": "Przetarta",
+    "work_cat": {
+      "name_work_cat": "Wyciek"
+    },
+    "fix_dep": {
+      "name_fix_cat": "MECHANICZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  },
+  {
+    "number": "5/12/2018",
+    "depart": {
+      "name_dep": "W2"
+    },
+    "machine": "Ślimak",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "NISKI"
+    },
+    "explain": "Głosna praca",
+    "work_cat": {
+      "name_work_cat": "Uszkodzony sprzęt"
+    },
+    "fix_dep": {
+      "name_fix_cat": "MECHANICZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  },
+  {
+    "number": "6/12/2018",
+    "depart": {
+      "name_dep": "W2"
+    },
+    "machine": "Czujnik",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "ŚREDNI"
+    },
+    "explain": "Zły pomiar",
+    "work_cat": {
+      "name_work_cat": "Uszkodzony sprzęt"
+    },
+    "fix_dep": {
+      "name_fix_cat": "ELEKTRYCZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  },
+  {
+    "number": "7/12/2018",
+    "depart": {
+      "name_dep": "W3"
+    },
+    "machine": "Klapa",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "ŚREDNI"
+    },
+    "explain": "Niesprawna",
+    "work_cat": {
+      "name_work_cat": "Wyciek"
+    },
+    "fix_dep": {
+      "name_fix_cat": "MECHANICZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  },
+  {
+    "number": "8/12/2018",
+    "depart": {
+      "name_dep": "W1"
+    },
+    "machine": "Komin",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "WYSOKI"
+    },
+    "explain": "Korozja",
+    "work_cat": {
+      "name_work_cat": "Uszkodzony sprzęt"
+    },
+    "fix_dep": {
+      "name_fix_cat": "MECHANICZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  },
+  {
+    "number": "9/12/2018",
+    "depart": {
+      "name_dep": "W3"
+    },
+    "machine": "Rurociag",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "NISKI"
+    },
+    "explain": "Przetary",
+    "work_cat": {
+      "name_work_cat": "Wyciek"
+    },
+    "fix_dep": {
+      "name_fix_cat": "MECHANICZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  },
+  {
+    "number": "w10/01/2019",
+    "depart": {
+      "name_dep": "W2"
+    },
+    "machine": "Monitor",
+    "add_date": "2019-01-05",
+    "expiry_date": "2019-01-05",
+    "priority": {
+      "type_prior": "WYSOKI"
+    },
+    "explain": "Uszkodzoany",
+    "work_cat": {
+      "name_work_cat": "Uszkodzony sprzęt"
+    },
+    "fix_dep": {
+      "name_fix_cat": "INFORMATYCZNY"
+    },
+    "is_done": false,
+    "fix_date": "2019-01-05"
+  }
+]

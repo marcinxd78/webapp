@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from .models import Tag, Department, Priority, Work_cat, Fix_cat
+from machines.models import Department
 
 
 class DepartmentSerializer(serializers.ModelSerializer):

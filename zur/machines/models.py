@@ -1,6 +1,19 @@
 from django.db import models
-from ur.models import Department
+
 # Create your models here.
+
+
+
+class Department(models.Model):   #klasa opisująca wydział
+    name_dep = models.CharField(max_length=20, verbose_name='Wydział')
+    people = models.PositiveIntegerField() #ilosc osob pracujących na danym dziale
+    contact = models.CharField(max_length=12, verbose_name='Numer telefonu') #telefon na wydział
+    class Meta:
+        verbose_name = 'Wydział'
+        verbose_name_plural = 'Wydziały'
+    def __str__(self):
+        return '%s' % self.name_dep
+
 
 class PlantObjects(models.Model):
     obj_name = models.CharField(max_length=40, verbose_name='Nazwa obiektu')  # nazwa obiektu

@@ -1,0 +1,76 @@
+
+
+{% load static %}
+
+<head>
+    <title>Multiformset Demo</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.2/jquery.formset.min.js" integrity="sha512-ltwjKsDTo3hW/wV66ZaEkf2wOAFxmg7rWM76J8kOcYKLSKy44WBYO/BFaNNH3NGDS8BSz3meB9wtSnm41oL+pA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.2/jquery.formset.js" integrity="sha512-Tsdobfrx6IMRPi8d5z3AtjWNSbZxGm58IZFnblaRaepw562ZITlRhUM2Zu87vbvZjQxGmmto+31zEBLZ4wjs+w==" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $(".inline.{{ ingredient_form.prefix}}").formset({
+                prefix: "{{ ingredient_form.prefix}}",
+            })
+
+        })
+         /* Setup plugin defaults */
+    $.fn.formset.defaults = {
+        prefix: 'form',                  // The form prefix for your django formset
+        formTemplate: null,              // The jQuery selection cloned to generate new form instances
+        addText: 'Dodaj',          // Text for the add link
+        deleteText: 'Usuń',            // Text for the delete link
+        addCssClass: 'add-row',          // CSS class applied to the add link
+        deleteCssClass: 'delete-row',    // CSS class applied to the delete link
+        formCssClass: 'dynamic-form',    // CSS class applied to each form in a formset
+        extraClasses: [],                // Additional CSS classes, which will be applied to each form in turn
+        added: null,                     // Function called each time a new form is added
+        removed: null                    // Function called each time a form is deleted
+    };
+    </script>
+
+</head>
+{% block body %}
+<body>
+
+    <div>
+        <h1>Rozliczenie zlecenia</h1>
+        <form action="." method="post">
+            {% csrf_token %}
+
+            <div>
+                {{ form.as_p }}
+            </div>
+            <fieldset>
+                <legend>Materiały</legend>
+                {{ ingredient_form.management_form }}
+                {{ ingredient_form.non_form_errors }}
+                {% for form in ingredient_form %}
+                    {{ form.id }}
+                    <div class="inline {{ ingredient_form.prefix }}">
+                    {{ form.name_material.errors }}
+                        {{ form.name_material.label_tag }}
+                        {{ form.name_material }}
+                         {{ form.amount_material.errors }}
+                        {{ form.amount_material.label_tag }}
+                        {{ form.amount_material }}
+                         {{ form.unit.errors }}
+                        {{ form.unit.label_tag }}
+                        {{ form.unit }}
+                         {{ form.cost_material.errors }}
+                        {{ form.cost_material.label_tag }}
+                        {{ form.cost_material }}
+                    </div>
+                {% endfor %}
+            </fieldset>
+
+            <input type="submit" value="Dodaj rozliczenie" class="submit" />
+        </form>
+    </div>
+</body>
+
+
+{% endblock %}
