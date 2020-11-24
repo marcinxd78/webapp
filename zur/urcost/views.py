@@ -1,49 +1,21 @@
 from django.shortcuts import render
 from .forms import TagToPayForm, PayForTagFormset
 from .models import PayForTag, TagToPay
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, ListView
 from django.http import HttpResponseRedirect
-# def cost_response(request):
-#
-#     return render(request, 'tag_list.html', {'tag' : tag_views})
+from django.db import transaction
 
-# def create_book_with_authors(request):
-#     template_name = 'tag_costs.html'
-#     if request.method == 'GET':
-#         infopayform = TagToPayForm(request.GET or None)
-#         payform = PayForTagFormset(queryset=TagToPay.objects.none())
-#     elif request.method == 'POST':
-#         infopayform = TagToPayForm(request.POST)
-#         payform = PayForTagFormset(request.POST)
-#         if infopayform.is_valid() and payform.is_valid():
-#             # first save this book, as its reference will be used in `Author`
-#             info = infopayform.save()
-#             for form in payform:
-#                 # so that `book` instance can be attached.
-#                 author = form.save(commit=False)
-#                 author.info = info
-#                 author.save()
-#             return redirect('tag_costs.html')
-#     return render(request, template_name, {
-#         ' infopayform':  infopayform,
-#         'payform': payform,
-#     })
-
-# def cost_add(request):
-#     form = TagToPayForm(request.POST or None, request.FILES or None)
-#     form2 = PayForTagFormset(request.POST or None, request.FILES or None)
-#     if form.is_valid() & form2.is_valid():
-#         form.save()
-#         form2.save()
-#         return redirect(cost_response)
-#
-#     return render(request, 'tag_costs.html', {'form': form, 'form2': form2})
+class TagToPayListView(ListView):
+    model = TagToPay
+    paginate_by = 100
+    context_object_name = ''
+    template_name = 'cost_list_view.html'
 
 class TagPayCreateView(CreateView):
     template_name = 'tag_cost.html'
     model = TagToPay
     form_class = TagToPayForm
-    success_url = 'success/'
+    success_url = '/costs/list/'
 
     def get(self, request, *args, **kwargs):
         """
@@ -90,6 +62,47 @@ class TagPayCreateView(CreateView):
         Called if a form is invalid. Re-renders the context data with the
         data-filled forms and errors.
         """
+        return self.render_to_response(
+            self.get_context_data(form=form,
+                                  ingredient_form=ingredient_form,
+                                  ))
+
+
+class RecipeUpdateView(UpdateView):
+
+    model = TagToPay
+    form_class = TagToPayForm
+    success_url = '/costs/list/'
+
+    def get_context_data(self, **kwargs):
+        form = super(RecipeUpdateView, self).get_context_data(**kwargs)
+        if self.request.POST:
+            form['ingredient_form'] = PayForTagFormset(
+                self.request.POST, instance=self.object)
+
+        else:
+            form['ingredient_form'] = PayForTagFormset(instance=self.object)
+
+        return form
+
+    def form_valid(self, form):
+        print("am I valid tho")
+        context = self.get_context_data()
+        ingredient_form = context['ingredient_form']
+
+        with transaction.atomic():
+            self.object = form.save()
+
+            if ingredient_form.is_valid():
+                ingredient_form.instance = self.object
+                ingredient_form.save()
+
+
+
+        return super(RecipeUpdateView, self).form_valid(form)
+
+    def form_invalid(self, form, ingredient_form, ):
+
         return self.render_to_response(
             self.get_context_data(form=form,
                                   ingredient_form=ingredient_form,
