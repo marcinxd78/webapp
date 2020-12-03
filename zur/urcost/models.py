@@ -11,6 +11,12 @@ class TagToPay(models.Model):
     def __str__(self):
         return '%s' % self.id
 
+
+    def get_total_cost(self):
+        return sum(item.get_cost() for item in self.items.all())
+
+
+
 class PayForTag(models.Model):
     UNIT_CHOICES = (
             ('a', 'godzina'),
@@ -33,5 +39,3 @@ class PayForTag(models.Model):
     def get_cost(self):
         return self.amount_material * self.cost_material
 
-    def get_total_cost(self):
-        return sum(item.get_cost() for item in self.items.all())

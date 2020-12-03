@@ -1,327 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="daf6cf7f-4ef3-4798-816f-8246316a6b2a" name="Default Changelist" comment="11">
-      <change afterPath="$PROJECT_DIR$/zur/templates/cost_list_view.html" afterDir="false" />
+    <list default="true" id="54911341-e585-4700-a073-f95bd64d26a0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/zur/templates/pay_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zur/templates/pdf.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0ab81854-5b22-4055-beac-68929633d82d.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Jimmy.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webapp.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/zur/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zur/templates/tag_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/tag_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/stats/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/stats/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/templates/cost_list_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/cost_list_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/ur/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/urcost/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/urcost/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/urcost/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/urcost/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/zur/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/zur/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/zur/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/zur/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-    </option>
-  </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JupyterTrust" id="d5769a99-2eff-4f6f-8623-38fe1d1f3f8d" />
-  <component name="ProjectId" id="1jZQLZmwxnqOPaSe6svG8hGWbDq" />
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State />
-          <State>
-            <id>Python</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>PyUnresolvedReferencesInspection</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1kyksZ28q7QCUoO1jvhVZaIiZH6" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.project" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Praca inzynierska\webapp\zur\my_static\js" />
-      <recent name="E:\Studia\Praca inzynierska\webapp\zur\templates\admin" />
-    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="daf6cf7f-4ef3-4798-816f-8246316a6b2a" name="Default Changelist" comment="" />
-      <created>1544204978392</created>
+      <changelist id="54911341-e585-4700-a073-f95bd64d26a0" name="Default Changelist" comment="" />
+      <created>1606680429490</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1544204978392</updated>
-      <workItem from="1545177955533" duration="14084000" />
-      <workItem from="1545223551166" duration="9403000" />
-      <workItem from="1545258132566" duration="16374000" />
-      <workItem from="1545410097278" duration="5555000" />
-      <workItem from="1545427318985" duration="622000" />
-      <workItem from="1545497675416" duration="10640000" />
-      <workItem from="1545574331789" duration="12256000" />
-      <workItem from="1545603946951" duration="5860000" />
-      <workItem from="1545661213879" duration="5428000" />
-      <workItem from="1546035143077" duration="8609000" />
-      <workItem from="1546553162432" duration="63000" />
-      <workItem from="1546553351398" duration="31000" />
-      <workItem from="1546553433755" duration="42000" />
-      <workItem from="1546619442515" duration="33000" />
-      <workItem from="1546634712315" duration="38000" />
-      <workItem from="1546634796810" duration="17000" />
-      <workItem from="1546634883077" duration="21000" />
-      <workItem from="1546686228569" duration="74389000" />
-      <workItem from="1547149807661" duration="11492000" />
-      <workItem from="1547223114080" duration="74886000" />
-      <workItem from="1548254383761" duration="1306000" />
-      <workItem from="1548489559316" duration="630000" />
-      <workItem from="1549223301808" duration="7056000" />
-      <workItem from="1550251816260" duration="98000" />
-      <workItem from="1561153234857" duration="368000" />
-      <workItem from="1561563346028" duration="1825000" />
-      <workItem from="1562076291483" duration="4426000" />
-      <workItem from="1563118473695" duration="691000" />
-      <workItem from="1563631275271" duration="882000" />
-      <workItem from="1586024471685" duration="3230000" />
-      <workItem from="1601728610230" duration="1987000" />
-      <workItem from="1602013548973" duration="2773000" />
-      <workItem from="1602437603954" duration="713000" />
-      <workItem from="1603037531935" duration="3848000" />
-      <workItem from="1603311005564" duration="884000" />
-      <workItem from="1603654897631" duration="694000" />
-      <workItem from="1603739367775" duration="1606000" />
-      <workItem from="1603917348122" duration="1697000" />
-      <workItem from="1604009081380" duration="651000" />
-      <workItem from="1604141862041" duration="2299000" />
-      <workItem from="1605457689008" duration="79528000" />
+      <updated>1606680429490</updated>
+      <workItem from="1606680431489" duration="167000" />
+      <workItem from="1606745613935" duration="16275000" />
     </task>
-    <task id="LOCAL-00001" summary="1">
-      <created>1544953674547</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1544953674547</updated>
-    </task>
-    <task id="LOCAL-00002" summary="1">
-      <created>1544953999198</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1544953999198</updated>
-    </task>
-    <task id="LOCAL-00003" summary="1">
-      <created>1544954107488</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1544954107488</updated>
-    </task>
-    <task id="LOCAL-00004" summary="2">
-      <created>1544957565581</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1544957565581</updated>
-    </task>
-    <task id="LOCAL-00005" summary="3">
-      <created>1544959377450</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1544959377450</updated>
-    </task>
-    <task id="LOCAL-00006" summary="4">
-      <created>1544967394836</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1544967394836</updated>
-    </task>
-    <task id="LOCAL-00007" summary="5">
-      <created>1544977470141</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1544977470141</updated>
-    </task>
-    <task id="LOCAL-00008" summary="6">
-      <created>1545064930548</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1545064930580</updated>
-    </task>
-    <task id="LOCAL-00009" summary="7">
-      <created>1545234761126</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1545234761126</updated>
-    </task>
-    <task id="LOCAL-00010" summary="8">
-      <created>1547162668634</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1547162668634</updated>
-    </task>
-    <task id="LOCAL-00011" summary="9">
-      <created>1547761208736</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1547761208736</updated>
-    </task>
-    <task id="LOCAL-00012" summary="9">
-      <created>1605540567564</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1605540567564</updated>
-    </task>
-    <task id="LOCAL-00013" summary="9">
-      <created>1605653832683</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1605653832683</updated>
-    </task>
-    <task id="LOCAL-00014" summary="`0`">
-      <created>1605653930712</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1605653930712</updated>
-    </task>
-    <task id="LOCAL-00015" summary="11">
-      <created>1606171235965</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1606171235965</updated>
-    </task>
-    <task id="LOCAL-00016" summary="11">
-      <created>1606171301135</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1606171301135</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="1" />
-    <MESSAGE value="2" />
-    <MESSAGE value="3" />
-    <MESSAGE value="4" />
-    <MESSAGE value="5" />
-    <MESSAGE value="6" />
-    <MESSAGE value="7" />
-    <MESSAGE value="8" />
-    <MESSAGE value="9" />
-    <MESSAGE value="`0`" />
-    <MESSAGE value="11" />
-    <option name="LAST_COMMIT_MESSAGE" value="11" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="392" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605457739462">
+    <state x="392" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606941739817">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="392" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.870@0.0.1600.870" timestamp="1605457739462" />
-    <state x="100" y="100" width="1400" height="670" key="DiffContextDialog" timestamp="1605732442690">
+    <state x="392" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1600.870@0.0.1600.870" timestamp="1606941739817" />
+    <state width="254" height="195" key="DatabaseViewActions_Filter" timestamp="1606941677385">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="100" y="100" width="1400" height="670" key="DiffContextDialog/0.0.1600.870@0.0.1600.870" timestamp="1605732442690" />
-    <state x="580" y="189" key="FileChooserDialogImpl" timestamp="1604009599691">
+    <state width="254" height="195" key="DatabaseViewActions_Filter/0.0.1600.870@0.0.1600.870" timestamp="1606941677385" />
+    <state x="580" y="189" key="FileChooserDialogImpl" timestamp="1606941731115">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="580" y="189" key="FileChooserDialogImpl/0.0.1600.870@0.0.1600.870" timestamp="1604009599691" />
-    <state x="610" y="326" key="Github.ShareDialog" timestamp="1605540607297">
+    <state x="580" y="189" key="FileChooserDialogImpl/0.0.1600.870@0.0.1600.870" timestamp="1606941731115" />
+    <state x="374" y="173" key="Vcs.Push.Dialog.v2" timestamp="1607028397487">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="610" y="326" key="Github.ShareDialog/0.0.1600.870@0.0.1600.870" timestamp="1605540607297" />
-    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1604009637676">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state width="196" height="457" key="HiddenNamespacesPopup/0.0.1600.870@0.0.1600.870" timestamp="1604009637676" />
-    <state x="301" y="80" key="SettingsEditor" timestamp="1604229417981">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="301" y="80" key="SettingsEditor/0.0.1600.870@0.0.1600.870" timestamp="1604229417981" />
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2" timestamp="1606171308600">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="392" y="168" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1606171308600" />
-    <state x="600" y="336" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1605540669512">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="600" y="336" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1600.870@0.0.1600.870" timestamp="1605540669512" />
-    <state x="463" y="186" width="672" height="678" key="search.everywhere.popup" timestamp="1606139342666">
-      <screen x="0" y="0" width="1600" height="870" />
-    </state>
-    <state x="463" y="186" width="672" height="678" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1606139342666" />
+    <state x="374" y="173" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1607028397487" />
   </component>
 </project>

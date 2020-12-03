@@ -1,10 +1,19 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 from .forms import TagToPayForm, PayForTagFormset
 from .models import PayForTag, TagToPay
 from django.views.generic import CreateView, UpdateView, ListView
 from django.http import HttpResponseRedirect
 from django.db import transaction
-
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
+from django.db.models import  Sum
+from django.db.models import F, FloatField
+from django.template.loader import render_to_string
+from weasyprint import HTML, CSS
+import weasyprint
+from django.conf import settings
 class TagToPayListView(ListView):
     model = TagToPay
     paginate_by = 100
@@ -107,3 +116,39 @@ class RecipeUpdateView(UpdateView):
             self.get_context_data(form=form,
                                   ingredient_form=ingredient_form,
                                   ))
+
+@staff_member_required
+def admin_payment_detail(request, payment_id):
+    payview = get_object_or_404(PayForTag , id=payment_id)
+    return render(request,'pay_detail.html', {'payview': payview})
+
+@login_required
+@staff_member_required
+def admin_order_detail(request, order_id):
+    order1 = TagToPay.objects.get(pk=order_id)
+   # order = get_object_or_404(TagToPay, pk=order_id)
+    #print(order)
+    #order = PayForTag.objects.get(id=order_id)
+    order = PayForTag.objects.filter(tag_order_id=order_id)
+    total = order.aggregate(total_price=Sum( F('cost_material') * F('amount_material'),output_field=FloatField()))
+    total_conv = total['total_price']
+    print(total_conv)
+    #order = Pay.objects.get(pk=order_id)
+    #order = get_object_or_404(PayForTag, tag_order_id=order_id)
+    print(order)
+    #order = get_object_or_404(TagToPay , id=order_id)
+    return render(request,'pay_detail.html', {'order': order,
+                                              'order1': order1,
+                                              'total_conv': total_conv})
+def admin_order_pdf(request, order_id):
+     order1 = TagToPay.objects.get(pk=order_id)
+     order = PayForTag.objects.filter(tag_order_id=order_id)
+     total = order.aggregate(total_price=Sum(F('cost_material') * F('amount_material'), output_field=FloatField()))
+     total_conv = total['total_price']
+     html = render_to_string('pdf.html',
+     {'order': order, 'order1': order1, 'total_conv': total_conv})
+     response = HttpResponse(content_type='application/pdf')
+     response['Content-Disposition'] = 'filename=\
+     "order1_{}.pdf"'.format(order1.id)
+     weasyprint.HTML(string=html).write_pdf(response,)
+     return response
