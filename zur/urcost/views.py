@@ -21,7 +21,7 @@ class TagToPayListView(ListView):
     template_name = 'cost_list_view.html'
 
 class TagPayCreateView(CreateView):
-    template_name = 'tag_cost.html'
+    template_name = 'tag_costs.html'
     model = TagToPay
     form_class = TagToPayForm
     success_url = '/costs/list/'

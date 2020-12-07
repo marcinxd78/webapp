@@ -13,5 +13,5 @@ class TagToPayForm(forms.ModelForm):
 PayForTagFormset = inlineformset_factory(
     TagToPay, PayForTag,
     fields=('id', 'name_material', 'amount_material', 'unit', 'cost_material', ),
-
+    extra=1,
 )
