@@ -1,40 +1,36 @@
-
-
 /*centrowanie panelu logowania*/
-.ab_center
-{
+.ab_center {
     top: 50%;
     left: 50%;
-    transform: translate3d(-50%,-50%, 0);
+    transform: translate3d(-50%, -50%, 0);
     position: absolute;
 }
 
 /*centrowanie przycisku zaloguj*/
-.btn_center
-{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.btn_center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.bacground_login{
-  background-image: url("bcg_login.jpg");
+.bacground_login {
+    background-image: url("bcg_login.jpg");
     background-color: #cccccc;
-  height: 654px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+    height: 654px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 
 }
 
-.bacground_form{
-  background-image: url("bcg_login.jpg");
+.bacground_form {
+    background-image: url("bcg_login.jpg");
     background-color: #cccccc;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
 
 }
 
@@ -42,53 +38,208 @@ td.details-control {
     background: url('details_open.png') no-repeat center center;
     cursor: pointer;
 }
+
 tr.shown td.details-control {
     background: url('details_close.png') no-repeat center center;
 }
-.img1{
-      background: url('details_close.png') no-repeat center center;
+
+.img1 {
+    background: url('details_close.png') no-repeat center center;
 }
 
-.pull-center{
-   position: relative;
- }
+.pull-center {
+    position: relative;
+}
 
- /*marginesy ilości rekordów na stronie*/
-.dataTables_length{
+/*marginesy ilości rekordów na stronie*/
+.dataTables_length {
     margin-top: 100px;
     margin-left: 130px;
 }
 
 /*marginesy wyszukiwarki*/
-.dataTables_filter{
+.dataTables_filter {
     margin-top: 100px;
     margin-right: 130px;
 }
 
 /*marginesy strony przewijania*/
- .dataTables_paginate{
-     margin-right: 130px !important;
- }
+.dataTables_paginate {
+    margin-right: 130px !important;
+}
 
 /*marginesy panelu info*/
-.dataTables_info{
-     margin-left: 130px !important;
- }
+.dataTables_info {
+    margin-left: 130px !important;
+}
 
 /*marginesy strony*/
-  .row{
-      margin-left: 10px !important;
-      margin-right: 10px !important;
-  }
+.row {
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
 
 /*wyśrodkowanie ikony wykonania*/
-.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child{
-      text-align: center;
-  }
+.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable td:last-child, table.table-bordered.dataTable td:last-child {
+    text-align: center;
+}
 
-.graph_margin{
+.graph_margin {
     margin-top: 100px;
 }
-.btn22{
- font-size: 22px;
+
+.btn22 {
+    font-size: 22px;
+}
+
+.select2-container .select2-selection--single {
+    height: 34px !important;
+}
+
+.select2-container--default .select2-selection--single {
+    border: 1px solid #ccc !important;
+    border-radius: 0px !important;
+}
+
+.invoice-box {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .15);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+}
+
+.invoice-box table td {
+    padding: 5px;
+    vertical-align: top;
+}
+
+.invoice-box table tr td:nth-child(2) {
+    text-align: right;
+}
+
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+}
+
+.invoice-box table tr.information table td {
+    padding-bottom: 40px;
+}
+
+.invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+    text-align: center;
+}
+
+.invoice-box table tr.details td {
+    padding-bottom: 20px;
+}
+
+.invoice-box table tr.item td {
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.invoice-box table tr.item.last td {
+    border-bottom: none;
+}
+
+.invoice-box table tr.total td:nth-child(2) {
+    border-top: 2px solid #eee;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+    .invoice-box table tr.top table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+
+    .invoice-box table tr.information table td {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+
+.comp_header {
+
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+
+.graph_row_mrg {
+    margin-bottom: 20px;
+}
+
+.graph_fnt {
+    font-size: 22px;
+    font-weight: bolder;
+}
+
+.results tr[visible='false'],
+.no-result {
+    display: none;
+}
+
+.results tr[visible='true'] {
+    display: table-row;
+}
+
+.counter {
+    padding: 8px;
+    color: #ccc;
+}
+
+/*marginesy wyszukiwarki płatności*/
+div#myTable_filter.dataTables_filter {
+    margin-top: 100px;
+    margin-right: 0px;
+}
+
+/*marginesy ilości rekordów na stronie płatności*/
+div#myTable_length.dataTables_length {
+    margin-top: 100px;
+    margin-left: 0px;
+}
+
+/*marginesy strony przewijania płatności*/
+div#myTable_paginate.dataTables_paginate.paging_simple_numbers {
+    margin-right: 0px !important;
+}
+
+/*marginesy panelu info płatnści*/
+div#myTable_info.dataTables_info {
+    margin-left: 0px !important;
+}
+
+/*centrowanie formularza zlecenia*/
+.center_form {
+    margin-top: 100px;
+    width: 100%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
 }

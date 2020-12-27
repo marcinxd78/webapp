@@ -32,11 +32,11 @@ class MachineEvidence(models.Model):
     machine_symbol = models.CharField(max_length=40, verbose_name='Symbol')  # symbol urządzenia
     machine_name = models.CharField(max_length=40, verbose_name='Nazwa')  # nazwa urządzenia
     machine_depart = models.ForeignKey(Department, null=True, on_delete=models.CASCADE, verbose_name='Wydział')  # wydział na którym jest urządzenie
-    serial_numb = models.CharField(max_length=30, verbose_name='Numer seryjny')  # numer seryjny urządzenia
-    evidence_numb = models.CharField(max_length=40, verbose_name='Numer ewidencyjny')  # numer ewidencyjny
-    machine_type = models.CharField(max_length=40, verbose_name='Model')  # model urządzenia
+    serial_numb = models.CharField(max_length=30, verbose_name='Numer seryjny', null=True, blank=True)  # numer seryjny urządzenia
+    evidence_numb = models.CharField(max_length=40, verbose_name='Numer ewidencyjny', null=True, blank=True)  # numer ewidencyjny
+    machine_type = models.CharField(max_length=40, verbose_name='Model', null=True,blank=True)  # model urządzenia
     machine_place = models.ForeignKey(PlantObjects, null=True, on_delete=models.CASCADE, verbose_name='Lokalizacja')  # obiekt maszyny
-    prod_year = models.IntegerField(verbose_name='Rok produkcji') #rok produkcji
+    prod_year = models.IntegerField(verbose_name='Rok produkcji', null=True, blank=True) #rok produkcji
     usage_machine = models.BooleanField(default=True, verbose_name="W eksploatacji") #status maszyny
     machine_image = models.ImageField(upload_to='machine_img', null=True, blank=True, verbose_name='Zdjęcie')  # zdjecie
     machine_docu = models.FileField(upload_to='machine_documents', null=True, blank=True, verbose_name='Dokumentacja')  #dokumentacja

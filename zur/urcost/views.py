@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.utils.decorators import method_decorator
+
 from .forms import TagToPayForm, PayForTagFormset
 from .models import PayForTag, TagToPay
 from django.views.generic import CreateView, UpdateView, ListView
@@ -7,30 +9,45 @@ from django.http import HttpResponseRedirect
 from django.db import transaction
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.admin.views.decorators import staff_member_required
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.db.models import  Sum
 from django.db.models import F, FloatField
 from django.template.loader import render_to_string
 from weasyprint import HTML, CSS
 import weasyprint
 from django.conf import settings
-class TagToPayListView(ListView):
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+
+
+class TagToPayListView(LoginRequiredMixin,PermissionRequiredMixin,ListView):
     model = TagToPay
     paginate_by = 100
     context_object_name = ''
     template_name = 'cost_list_view.html'
+    permission_required = 'urcost.view_tagtopay'
+    raise_exception = True
+    permission_denied_message = 'Permission Denied'
 
-class TagPayCreateView(CreateView):
+
+
+class TagPayCreateView(LoginRequiredMixin,PermissionRequiredMixin,CreateView, ):
+
     template_name = 'tag_costs.html'
     model = TagToPay
     form_class = TagToPayForm
     success_url = '/costs/list/'
+    permission_required = 'urcost.add_tagtopay'
+    raise_exception = True
+    permission_denied_message = 'Permission Denied'
+
+
 
     def get(self, request, *args, **kwargs):
         """
         Handles GET requests and instantiates blank versions of the form
         and its inline formsets.
         """
+
         self.object = None
         form_class = self.get_form_class()
         form = self.get_form(form_class)
@@ -38,6 +55,8 @@ class TagPayCreateView(CreateView):
         return self.render_to_response(
             self.get_context_data(form=form,
                                   ingredient_form=ingredient_form,))
+
+
 
     def post(self, request, *args, **kwargs):
         """
@@ -77,11 +96,14 @@ class TagPayCreateView(CreateView):
                                   ))
 
 
-class RecipeUpdateView(UpdateView):
+class RecipeUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
 
     model = TagToPay
     form_class = TagToPayForm
     success_url = '/costs/list/'
+    permission_required = 'urcost.change_tagtopay'
+    raise_exception = True
+    permission_denied_message = 'Permission Denied'
 
     def get_context_data(self, **kwargs):
         form = super(RecipeUpdateView, self).get_context_data(**kwargs)
@@ -124,6 +146,7 @@ def admin_payment_detail(request, payment_id):
 
 @login_required
 @staff_member_required
+@permission_required('urcost.view_costhtml',raise_exception=True)
 def admin_order_detail(request, order_id):
     order1 = TagToPay.objects.get(pk=order_id)
    # order = get_object_or_404(TagToPay, pk=order_id)
@@ -136,10 +159,14 @@ def admin_order_detail(request, order_id):
     #order = Pay.objects.get(pk=order_id)
     #order = get_object_or_404(PayForTag, tag_order_id=order_id)
     print(order)
+    print(['add1'] )
     #order = get_object_or_404(TagToPay , id=order_id)
     return render(request,'pay_detail.html', {'order': order,
                                               'order1': order1,
-                                              'total_conv': total_conv})
+                                              'total_conv': total_conv, })
+@login_required
+@staff_member_required
+@permission_required('urcost.view_costpdf',raise_exception=True)
 def admin_order_pdf(request, order_id):
      order1 = TagToPay.objects.get(pk=order_id)
      order = PayForTag.objects.filter(tag_order_id=order_id)
@@ -150,5 +177,13 @@ def admin_order_pdf(request, order_id):
      response = HttpResponse(content_type='application/pdf')
      response['Content-Disposition'] = 'filename=\
      "order1_{}.pdf"'.format(order1.id)
-     weasyprint.HTML(string=html).write_pdf(response,)
+     weasyprint.HTML(string=html).write_pdf(response,stylesheets = [weasyprint.CSS(
+         settings.STATIC_ROOT + '/my_css.css')])
+
      return response
+
+def dropquery(request, tag_id):
+    tgname = TagToPay.objects.filter(tag_name_id=tag_id)
+    #tgname = TagToPay.objects.all().values_list('tag_name')
+    print(tgname)
+    return render(request,'dropdown.html', {'tgname': tgname})

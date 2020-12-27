@@ -131,6 +131,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = ['my_static']
 
 MEDIA_URL = '/media/'
@@ -141,3 +142,4 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'login'
 
 DJANGO_TABLES2_TEMPLATE = 'django_tables2/bootstrap4.html'
+

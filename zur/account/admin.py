@@ -95,3 +95,5 @@ admin.site.register(MyUser,UserAdmin)
 
 admin.site.register(Position)
 
+admin.site.site_url = "/ur/index"
+admin.site.site_header = "Administracja UR"

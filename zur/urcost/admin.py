@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PayForTag, TagToPay
+from .models import PayForTag, TagToPay, CompanyList
 from django.contrib.auth.models import Permission
 from django.utils.safestring import mark_safe
 from django.urls import reverse
@@ -24,10 +24,11 @@ class PayForTagInline(admin.TabularInline):
 
 class PayForTagAdmin(admin.ModelAdmin):
 
-    list_display = ['id', 'tag_name', 'comp_name', 'comp_local', order_detail, order_pdf]
+    list_display = ['id', 'tag_name', 'comp_name',  order_detail, order_pdf]
     inlines = [PayForTagInline]
 
 
 
 admin.site.register(TagToPay, PayForTagAdmin)
 admin.site.register(PayForTag)
+admin.site.register(CompanyList)

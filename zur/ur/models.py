@@ -1,8 +1,9 @@
+import random
 from django.db import models
 from datetime import datetime
 
 from django.contrib.auth import get_user_model
-from machines.models import Department
+from machines.models import Department, MachineEvidence
 
 # Create your models here.
 
@@ -52,23 +53,25 @@ class Fix_cat(models.Model):  # dział odpowiedzialny za naprawe np.ELEKTRYCY
 
 
 # class TagManager(models.Manager):
-
-def foo():
-
-    counter = Tag.objects.get.last() + 1
-
-    return counter
-
+def increment_invoice_number():
+    last_invoice = Tag.objects.all().order_by('id').last()
+    if not last_invoice:
+        return 'ZL/NR/0001'
+    invoice_no = last_invoice.number
+    invoice_int = int(invoice_no.split('ZL/NR/')[-1])
+    width = 4
+    new_invoice_int = invoice_int + 1
+    formatted = (width - len(str(new_invoice_int))) * "0" + str(new_invoice_int)
+    new_invoice_no = 'ZL/NR/' + str(formatted)
+    return new_invoice_no
 
 class Tag(models.Model):
 
     k = datetime.now().date()
 
-
-
-    number = models.CharField(max_length=20, verbose_name='Numer tagu')  # numer tagu
+    number = models.CharField(default=increment_invoice_number,unique=True, max_length=20, verbose_name="Numer zlecenia", )  # numer tagu
     depart = models.ForeignKey(Department, null=True, on_delete=models.CASCADE, verbose_name='Wydział')  # wydział
-    machine = models.CharField(max_length=20, verbose_name='Urządzenie')  # urządzenie
+    machine = models.ForeignKey(MachineEvidence,max_length=20,on_delete=models.CASCADE, verbose_name='Urządzenie')  # urządzenie
     add_date = models.DateField(verbose_name='Data dodania', default=datetime.now().date())  # data dodania
     expiry_date = models.DateField(verbose_name='Do kiedy wkonac zlecenie',
                                    default=datetime.now().date())  # data wykonania
@@ -83,8 +86,6 @@ class Tag(models.Model):
     fix_date = models.DateField(default=datetime.now().date(), blank=True, verbose_name="Data usunięcia usterki", )
 
 
-
-
     # oblicza jaki był czas od dodania zlecenia do jego zakończenia
 
     def is_do_it(self):
@@ -96,6 +97,8 @@ class Tag(models.Model):
     # oblicza ile mamy dni na wykonanie zlecenia
     def many_days(self):
         return (self.expiry_date - self.add_date).days
+
+    many_days.short_description = "Dni na wykonanie"
 
     # oblicza ilść wykonanych tagów
     @classmethod
@@ -140,7 +143,6 @@ class Tag(models.Model):
 
 
 
-
     class Meta:
         verbose_name = 'Tag'
         verbose_name_plural = 'Tagi'
@@ -148,3 +150,4 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.number
+

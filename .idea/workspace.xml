@@ -21,23 +21,43 @@
   <component name="ChangeListManager">
     <list default="true" id="54911341-e585-4700-a073-f95bd64d26a0" name="Default Changelist" comment="13">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/account/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/account/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/account/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/account/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/zur/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/machines/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/machines/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/machines/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/machines/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/machines/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/machines/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/my_static/my_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/zur/my_static/my_css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/stats/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/stats/migrations/0001_initial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/stats/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/stats/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/templates/cost_list_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/cost_list_view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/templates/graph.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/graph.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zur/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/templates/pay_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/pay_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zur/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/templates/pdf.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/pdf.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/templates/tag_costs.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/tag_costs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/templates/tag_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/tag_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/templates/tag_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/zur/templates/tag_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/ur/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/ur/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/migrations/0002_auto_20201118_2246.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/migrations/0003_auto_20201120_2215.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/migrations/0004_auto_20201121_0921.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/migrations/0005_auto_20201127_1327.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/migrations/0006_auto_20201129_1153.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/ur/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/ur/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/ur/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/ur/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/ur/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/urcost/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/urcost/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/urcost/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/urcost/migrations/0002_auto_20201121_0921.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/urcost/migrations/0003_auto_20201121_1605.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/urcost/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/urcost/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zur/urcost/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/urcost/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zur/zur/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/zur/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zur/zur/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/zur/zur/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +67,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -77,7 +97,8 @@
       <updated>1606680429490</updated>
       <workItem from="1606680431489" duration="167000" />
       <workItem from="1606745613935" duration="17610000" />
-      <workItem from="1607029952677" duration="43910000" />
+      <workItem from="1607029952677" duration="69429000" />
+      <workItem from="1607773414099" duration="109988000" />
     </task>
     <task id="LOCAL-00001" summary="13">
       <created>1607028740297</created>
@@ -86,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607028740297</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="14">
+      <created>1607382551267</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607382551267</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -106,7 +134,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="13" />
-    <option name="LAST_COMMIT_MESSAGE" value="13" />
+    <MESSAGE value="14" />
+    <option name="LAST_COMMIT_MESSAGE" value="14" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="93" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607380555321">
@@ -121,13 +150,17 @@
       <screen x="0" y="0" width="1600" height="870" />
     </state>
     <state x="580" y="189" key="FileChooserDialogImpl/0.0.1600.870@0.0.1600.870" timestamp="1606941731115" />
-    <state x="374" y="173" key="Vcs.Push.Dialog.v2" timestamp="1607028757548">
+    <state x="686" y="349" key="VCS.EditChangelistDialog" timestamp="1607382542492">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="374" y="173" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1607028757548" />
-    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1607263498763">
+    <state x="686" y="349" key="VCS.EditChangelistDialog/0.0.1600.870@0.0.1600.870" timestamp="1607382542492" />
+    <state x="374" y="173" key="Vcs.Push.Dialog.v2" timestamp="1607382566782">
       <screen x="0" y="0" width="1600" height="870" />
     </state>
-    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1607263498763" />
+    <state x="374" y="173" key="Vcs.Push.Dialog.v2/0.0.1600.870@0.0.1600.870" timestamp="1607382566782" />
+    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup" timestamp="1608592709671">
+      <screen x="0" y="0" width="1600" height="870" />
+    </state>
+    <state x="463" y="182" width="672" height="678" key="search.everywhere.popup/0.0.1600.870@0.0.1600.870" timestamp="1608592709671" />
   </component>
 </project>

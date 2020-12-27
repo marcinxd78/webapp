@@ -1,33 +1,94 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 
 {% block body %}
 
-    <div  class="container graph_margin">
-        <div class="row">
-            <div class="col-md-6">
+    <div class="container graph_margin">
+        <div class="row graph_row_mrg">
+            <div class="col ">
+                <h5 class="text-center">Zlecenia w liczbach</h5>
+            </div>
+        </div>
+        <div class="row text-center graph_row_mrg">
+            <div class="col ">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header "><h5>Wykonane</h5></div>
+                    <div class="card-body">
+
+                        <p class="card-text graph_fnt">{{ bug_all_total|safe }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="card text-white  bg-danger mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h5>Niewykonane</h5></div>
+                    <div class="card-body">
+
+                        <p class="card-text graph_fnt">{{ bug_posted_total|safe }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-warning mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h5>Awarie</h5></div>
+                    <div class="card-body">
+
+                        <p class="card-text graph_fnt">
+                            {% for i in result3 %}{% if i.work_cat__name_work_cat == 'Awaria' %}{{ i.count }}
+                            {% endif %} {% endfor %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h5>Usterki</h5></div>
+                    <div class="card-body">
+
+                        <p class="card-text graph_fnt">
+                            {% for i in result3 %}{% if i.work_cat__name_work_cat == 'Usterka' %}{{ i.count }}
+                            {% endif %} {% endfor %}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card text-white bg-success mb-3" style="max-width: 18rem;">
+                    <div class="card-header"><h5>Ilość zleceń</h5></div>
+                    <div class="card-body">
+                        <p class="card-text graph_fnt">{{ bug_get_every|safe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row graph_row_mrg">
+            <div class="col">
                 <canvas id="Bug-status-bar"></canvas>
             </div>
-            <div class="col-md-6">
+            <div class="col">
+                <canvas id="Bug-status-bar4"></canvas>
+            </div>
+        </div>
+
+
+        <div class="row graph_row_mrg">
+            <div class="col">
                 <canvas id="Bug-status-bar2"></canvas>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col">
                 <canvas id="Bug-status-bar3"></canvas>
             </div>
-            <div class="col-md-6">
-                <canvas id="Bug-status-bar4"></canvas>
-            </div>
-            </div>
-        </div>
 
+        </div>
+    </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 
     <script type="text/javascript">
+
         var ctx = document.getElementById('Bug-status-bar3').getContext('2d');
         var dataArray = [{% for i in result %}{{ i.count }}, {% endfor %}];
         var myChart = new Chart(ctx, { {% for i in result %}
@@ -64,6 +125,9 @@
             options: {
                 scales: {
                     yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
                         ticks: {
                             beginAtZero: true
                         }
@@ -75,6 +139,7 @@
 
 
     <script type="text/javascript">
+
         var ctx = document.getElementById('Bug-status-bar2').getContext('2d');
         var dataArray = [{% for i in result %}{{ i.count }}, {% endfor %}]
         var myChart = new Chart(ctx, {
@@ -86,20 +151,13 @@
                         label: '{{ i.fix_dep__name_fix_cat }}',
                         data: dataArray,
                         backgroundColor: [
-                            'rgba(255, 99, 132, 0.4)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 99, 132, 0.4)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
+                            "rgb(46,210,177)",
+                            'rgb(198,212,15)',
+                            'rgb(35,212,15)',
+                            'rgb(212,146,15)',
                         ],
 
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 99, 132, 0.4)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                        ], {% endfor %}
+                    {% endfor %}
                     borderWidth: 1
 
                 },]
@@ -107,10 +165,20 @@
             },
 
             options: {
+                title: {
+                    display: true,
+                    text: "Podział ilości zleceń na działy UR"
+                },
                 scales: {
+
                     yAxes: [{
+                        gridLines: {
+                            display: false
+
+                        },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            display: false
                         }
                     }]
                 }
@@ -124,27 +192,32 @@
         var myChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Niewykonane', 'Wykonane'],
+                labels: ['Wykonane', 'Niewykonane'],
                 datasets: [{
                     label: 'Statistic on bug activity',
                     data: dataArray,
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.4)',
-                        'rgba(54, 162, 235, 0.2)',
+                        "#28a745",
+                        '#dc3545',
                     ],
 
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                    ],
+                    borderColor: [],
                     borderWidth: 1
                 }]
             },
             options: {
+                title: {
+                    display: true,
+                    text: "Stosunek zleceń wykonanych i niewykonanych"
+                },
                 scales: {
                     yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            display: false
                         }
                     }]
                 }
@@ -159,26 +232,13 @@
         var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-                labels: [{% for i in result2 %}'{{ i.machine }}',{% endfor %}],
+                labels: [{% for i in result2 %}'{{ i.machine__machine_name }}',{% endfor %}],
 
                 datasets: [{  {% for i in result2 %}
                         label: '{{ i.machine }}',
                         data: dataArray,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.4)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 99, 132, 0.4)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                        ],
-
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 99, 132, 0.4)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                        ], {% endfor %}
+                        backgroundColor: "rgb(46,210,177)",
+                    {% endfor %}
                     borderWidth: 1
 
                 },]
@@ -186,8 +246,16 @@
             },
 
             options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                    text: "Suma zleceń przypadajaca na urządzenie"
+                },
                 scales: {
                     yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
                         ticks: {
                             beginAtZero: true
                         }
@@ -205,25 +273,30 @@
             data: {
                 labels: [{% for i in result3 %}'{{ i.work_cat__name_work_cat }}',{% endfor %}],
                 datasets: [{
-                    label: 'Statistic on bug activity',
-                    data: dataArray,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.4)',
-                        'rgba(54, 162, 235, 0.2)',
-                    ],
 
-                    borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
+                    data: dataArray,
+
+                    backgroundColor: [
+                        "#ffc107",
+                        '#17a2b8',
                     ],
-                    borderWidth: 1
+                    borderWidth: 1,
+
                 }]
             },
             options: {
+                title: {
+                    display: true,
+                    text: "Stosunek awarii do usterek"
+                },
                 scales: {
                     yAxes: [{
+                        gridLines: {
+                            display: false
+                        },
                         ticks: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            display: false
                         }
                     }]
                 }

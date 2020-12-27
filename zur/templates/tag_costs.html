@@ -1,11 +1,19 @@
 
 
 {% load static %}
-<head>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.2/jquery.formset.min.js" integrity="sha512-ltwjKsDTo3hW/wV66ZaEkf2wOAFxmg7rWM76J8kOcYKLSKy44WBYO/BFaNNH3NGDS8BSz3meB9wtSnm41oL+pA==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.2/jquery.formset.js" integrity="sha512-Tsdobfrx6IMRPi8d5z3AtjWNSbZxGm58IZFnblaRaepw562ZITlRhUM2Zu87vbvZjQxGmmto+31zEBLZ4wjs+w==" crossorigin="anonymous"></script>
+<head xmlns="http://www.w3.org/1999/html">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"
+            integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.2/jquery.formset.min.js"
+            integrity="sha512-ltwjKsDTo3hW/wV66ZaEkf2wOAFxmg7rWM76J8kOcYKLSKy44WBYO/BFaNNH3NGDS8BSz3meB9wtSnm41oL+pA=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.formset/1.2.2/jquery.formset.js"
+            integrity="sha512-Tsdobfrx6IMRPi8d5z3AtjWNSbZxGm58IZFnblaRaepw562ZITlRhUM2Zu87vbvZjQxGmmto+31zEBLZ4wjs+w=="
+            crossorigin="anonymous"></script>
 
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
@@ -13,33 +21,41 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"
+            integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg=="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
+          integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg=="
+          crossorigin="anonymous"/>
 
 
     <script type="text/javascript">
-        $(function() {
+        $(function () {
             $(".inline.{{ ingredient_form.prefix}}").formset({
                 prefix: "{{ ingredient_form.prefix}}",
             })
 
         })
-         /* Setup plugin defaults */
-    $.fn.formset.defaults = {
-        prefix: 'form',                  // The form prefix for your django formset
-        formTemplate: null,              // The jQuery selection cloned to generate new form instances
-        addText: 'Dodaj',          // Text for the add link
-        deleteText: 'Usuń',            // Text for the delete link
-        addCssClass: 'btn btn-success btn-lg ',          // CSS class applied to the add link
-        deleteCssClass: 'delete-row',    // CSS class applied to the delete link
-        formCssClass: 'dynamic-form',    // CSS class applied to each form in a formset
-        extraClasses: [],                // Additional CSS classes, which will be applied to each form in turn
-        added: null,                     // Function called each time a new form is added
-        removed: null                    // Function called each time a form is deleted
-    };
+        /* Setup plugin defaults */
+        $.fn.formset.defaults = {
+            prefix: 'form',                  // The form prefix for your django formset
+            formTemplate: null,              // The jQuery selection cloned to generate new form instances
+            addText: 'Dodaj',          // Text for the add link
+            deleteText: 'Usuń',            // Text for the delete link
+            addCssClass: 'btn btn-success btn-lg ',          // CSS class applied to the add link
+            deleteCssClass: 'delete-row',    // CSS class applied to the delete link
+            formCssClass: 'dynamic-form',    // CSS class applied to each form in a formset
+            extraClasses: [],                // Additional CSS classes, which will be applied to each form in turn
+            added: null,                     // Function called each time a new form is added
+            removed: null                    // Function called each time a form is deleted
+        };
 
     </script>
+
 
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -72,13 +88,12 @@
     <div class="dropdown show">
         <a class="navbar-brand" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
-           Rozliczenia <i class="fas fa-search-dollar"></i>
+            Rozliczenia <i class="fas fa-search-dollar"></i>
         </a>
 
         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="{% url 'urcost:cost_list' %}">Pokaż rozliczenia</a>
             <a class="dropdown-item" href="{% url 'urcost:cost_add' %}">Dodaj</a>
-            <a class="dropdown-item" href="#">Something else here</a>
         </div>
     </div>
     <a style="position:  absolute; right: 0px;" class="navbar-brand" href="{% url 'logout' %}">
@@ -88,43 +103,49 @@
 
 </nav>
 
-  <div  class="container graph_margin">
+<div class="container graph_margin">
 
-        <h1>Rozliczenie zlecenia</h1>
-        <form action="." method="post" enctype="multipart/form-data">
-            {% csrf_token %}
+    <h1>Rozliczenie zlecenia</h1>
+    <form action="." method="post" enctype="multipart/form-data">
+        {% csrf_token %}
 
-            <div>
-                {{ form.as_p }}
-            </div>
-            <fieldset>
-                <legend>Materiały</legend>
-                {{ ingredient_form.management_form }}
-                {{ ingredient_form.non_form_errors }}
-                {% for form in ingredient_form %}
-                    {{ form.id }}
-                    <div class="inline {{ ingredient_form.prefix }}">
+
+        <div>
+            <legend>Numer zlecenia</legend>
+            {{ form.tag_name }}</div>
+        <div>
+            <legend>Nazwa firmy</legend>
+            {{ form.comp_name }}</div>
+
+
+        <fieldset>
+            <legend>Materiały</legend>
+            {{ ingredient_form.management_form }}
+            {{ ingredient_form.non_form_errors }}
+            {% for form in ingredient_form %}
+                {{ form.id }}
+                <div class="inline {{ ingredient_form.prefix }}">
                     {{ form.name_material.errors }}
-                        {{ form.name_material.label_tag }}
-                        {{ form.name_material }}
-                         {{ form.amount_material.errors }}
-                        {{ form.amount_material.label_tag }}
-                        {{ form.amount_material }}
-                         {{ form.unit.errors }}
-                        {{ form.unit.label_tag }}
-                        {{ form.unit }}
-                         {{ form.cost_material.errors }}
-                        {{ form.cost_material.label_tag }}
-                        {{ form.cost_material }}
-                    </div>
+                    {{ form.name_material.label_tag }}
+                    {{ form.name_material }}
+                    {{ form.amount_material.errors }}
+                    {{ form.amount_material.label_tag }}
+                    {{ form.amount_material }}
+                    {{ form.unit.errors }}
+                    {{ form.unit.label_tag }}
+                    {{ form.unit }}
+                    {{ form.cost_material.errors }}
+                    {{ form.cost_material.label_tag }}
+                    {{ form.cost_material }}
+                </div>
 
-                {% endfor %}
+            {% endfor %}
 
-            </fieldset>
-            <input type="submit" value="Dodaj rozliczenie" class="btn-danger" />
+        </fieldset>
+        <input type="submit" value="Dodaj rozliczenie" class="btn-danger"/>
 
-        </form>
-  </div>
+    </form>
+</div>
 
 
 <footer style="text-align: center; background: #343a40" class="footer  mt-auto py-3">
@@ -132,5 +153,6 @@
         <span class="text-white">2019 Copyright by Marcin Nieznalski</span>
     </div>
 </footer>
-    </body>
+</body>
 
+</html>

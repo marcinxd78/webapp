@@ -1,9 +1,114 @@
-
-
+{% load static %}
+<head>
+    <link rel="stylesheet" href="{% static 'my_css.css' %}">
+</head>
 
 <body>
+<div class="invoice-box ">
+        <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+                <td colspan="5">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="https://www.logolynx.com/images/logolynx/d7/d7e640a486e20915b5bb035fc7a7e922.jpeg" style="width:100%; max-width:300px;">
+                            </td>
 
-<h1>Zamówienie {{ order1.id }}</h1>
+                            <td>
+                                Zlecenie nr : {{ order1.tag_name }}<br>
+                                Id zlecenia:{{ order1.id }} <br>
+                                Wygenerowano: {% now "SHORT_DATETIME_FORMAT" %}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+            <tr class="information">
+                <td colspan="5">
+                    <table>
+                        <tr>
+                            <td>
+                               <div class="comp_header">Wykonawca:</div>
+                               {{ order1.comp_name }}<br>
+                                {{order1.comp_name.cmp_address }}<br>
+                                {{ order1.comp_name.cmp_address2}}<br>
+                                {{ order1.comp_name.cmp_tel }}
+                            </td>
+
+                            <td>
+                                <div class="comp_header">Zleceniodawca:</div>
+                                Example Company SA<br>
+                                Borowicka 8<br>
+                                55-178 Białystok<br>
+                                768-187-198
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+
+
+
+            <tr class="heading">
+                <td>
+                   Produkt
+                </td>
+
+                <td>
+                    Jednostka
+                </td>
+                <td>
+                    Ilość
+                </td>
+                <td>
+                    Cena
+                </td>
+                <td>
+                    Razem
+                </td>
+            </tr>
+
+            <tr class="item">
+
+            </tr>
+            {% for item in order%}
+            <tr class="item">
+
+            <td class="num">{{ item.name_material }} </td>
+            <td class="num">{{ item.get_unit_display }} </td>
+            <td class="num">{{ item.amount_material }}</td>
+            <td class="num">{{ item.cost_material }} zł</td>
+            <td class="num">{{ item.get_cost }} zł</td>
+
+            </tr>
+  {% endfor %}
+
+
+
+            <tr class="total">
+                <td></td>
+
+                <td colspan="5">
+                   Razem: {{total_conv}} zł
+
+                </td>
+
+            </tr>
+            <tr><td>
+                 <a href="#" onclick="window.print();">Drukuj zamówienie</a>
+            </td>
+
+        </tr>
+
+        </table>
+    </div>
+
+
+
+
+<!--<h1>Zamówienie {{ order1.id }}</h1>
 <ul class="object-tools">
   <li>
     <a href="#" onclick="window.print();">Drukuj zamówienie</a>
@@ -21,9 +126,14 @@
   </tr>
  <tr>
     <th>Adres</th>
-    <td>{{ order1.comp_local }} </td>
-  </tr>
+    <td>{{order1.comp_name.cmp_address }},  </td>
+     <td>{{ order1.comp_name.cmp_address2}} </td>
 
+  </tr>
+ <tr>
+    <th>Numer telefonu</th>
+    <td>{{ order1.comp_name.cmp_tel }} </td>
+  </tr>
 
 </table>
 
@@ -64,6 +174,6 @@
       </tbody>
     </table>
   </div>
-</div>
+</div>-->
 
 </body>

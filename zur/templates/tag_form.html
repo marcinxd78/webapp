@@ -4,26 +4,48 @@
 {% load bootstrap %}
 
 
-
 {% block body %}
 
+    <div class="container  min-vh-100">
+        <div class="row align-items-center min-vh-100" >
 
-<div class="bacground_form">
+            <div class="card mx-auto" style="width: 800px; margin: 50px">
+                <div class="card-header" align="center">
+                    Dodaj/edytuj zlecenie
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
 
-        <div class="card mx-auto"  style="width: 800px; margin: 50px">
-            <div class="card-header" align="center">
-                 Dodaj nowy Tag
-             </div>
-            <div class="card-body" >
-                <form method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{new_tag|bootstrap}}
-                    <button type="submit" class="btn btn-dark"> Dodaj tag <i class="fas fa-database"></i> </button>
-                       <a  href="{% url 'tag_all' %}">Powrót <i class="fas fa-undo"></i> </a>
-                </form>
+
+                        {{ new_tag.number|bootstrap }}
+                        <fieldset {% if perms.ur.view_canaddtag %} {% elif perms.ur.view_isdone %}hidden{% endif %}>
+                            {{ new_tag.depart|bootstrap }}
+                            {{ new_tag.machine|bootstrap }}
+                            {{ new_tag.add_date|bootstrap }}
+                            {{ new_tag.expiry_date|bootstrap }}
+                            {{ new_tag.priority|bootstrap }}
+                            {{ new_tag.explain|bootstrap }}
+                            {{ new_tag.image|bootstrap }}
+                            {{ new_tag.work_cat|bootstrap }}
+                            {{ new_tag.fix_dep|bootstrap }}
+                        </fieldset>
+
+                        {% if perms.ur.view_isdone %}
+
+                            {{ new_tag.is_done|bootstrap }}
+                            {{ new_tag.fix_date|bootstrap }}
+                        {% endif %}
+
+
+
+                        <!--{{ new_tag|bootstrap }}-->
+                        <button type="submit" class="btn btn-dark"> Dodaj tag <i class="fas fa-database"></i></button>
+                        <a href="{% url 'tag_all' %}">Powrót <i class="fas fa-undo"></i> </a>
+                    </form>
+                </div>
             </div>
+
         </div>
-
-</div>
-
+    </div>
 {% endblock %}
